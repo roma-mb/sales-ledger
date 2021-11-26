@@ -13,6 +13,9 @@ class SaleFormRequest extends FormRequestAbstract
         return true;
     }
 
+    /**
+     * @return mixed[]
+     */
     public function rules(): array
     {
         $method = $this->route()->getActionMethod();
@@ -23,6 +26,9 @@ class SaleFormRequest extends FormRequestAbstract
         ], $method, []);
     }
 
+    /**
+     * @return string[]
+     */
     private static function store(): array
     {
         return [
@@ -32,6 +38,9 @@ class SaleFormRequest extends FormRequestAbstract
         ];
     }
 
+    /**
+     * @return string[]
+     */
     private static function update(): array
     {
         return [

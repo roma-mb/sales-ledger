@@ -65,6 +65,13 @@ run
 php artisan serve --port=8080
 ```
 
+#### Schedule mail report daily in background
+
+run
+```
+php artisan schedule:run
+```
+
 #### Migrations
 
 run

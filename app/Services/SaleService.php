@@ -24,6 +24,8 @@ class SaleService
     }
 
     /**
+     * @param mixed[] $attributes
+     *
      * @throws \Throwable
      */
     public function store(array $attributes)
@@ -40,6 +42,7 @@ class SaleService
         return $this->saleRepository->findWithRelation($sale, 'seller')->get();
     }
 
+    /** @param mixed[] $attributes */
     public function update(array $attributes, Sale $sale): bool
     {
         return $this->saleRepository->update(self::setCommission($attributes), $sale);
@@ -50,6 +53,7 @@ class SaleService
         return $this->saleRepository->destroy($sale);
     }
 
+    /** @param mixed[] $attributes */
     public static function setCommission(array $attributes): array
     {
         if ($value = Arr::get($attributes, 'value')) {

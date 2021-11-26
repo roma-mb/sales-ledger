@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Repositories;
 
 use App\Models\Seller;
@@ -14,6 +12,7 @@ class SellerRepository
         return Seller::all();
     }
 
+    /** @param mixed[] $attributes */
     public function save(array $attributes): Seller
     {
         return Seller::firstOrCreate($attributes);
@@ -26,9 +25,10 @@ class SellerRepository
             ->where('id', $seller->id);
     }
 
-    public function update(array $all, Seller $seller): bool
+    /** @param mixed[] $attributes */
+    public function update(array $attributes, Seller $seller): bool
     {
-        return $seller->update($all);
+        return $seller->update($attributes);
     }
 
     public function destroy(Seller $seller): ?bool

@@ -29,6 +29,8 @@ class SellerService
     }
 
     /**
+     * @param mixed[] $attributes
+     *
      * @throws \Throwable
      */
     public function store(array $attributes): Seller
@@ -45,9 +47,10 @@ class SellerService
         return $this->sellerRepository->findWithRelation($seller, 'sales')->get();
     }
 
-    public function update(array $all, Seller $seller): bool
+    /** @param mixed[] $attributes */
+    public function update(array $attributes, Seller $seller): bool
     {
-        return $this->sellerRepository->update($all, $seller);
+        return $this->sellerRepository->update($attributes, $seller);
     }
 
     public function delete(Seller $seller): ?bool

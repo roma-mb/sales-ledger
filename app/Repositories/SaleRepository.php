@@ -12,7 +12,8 @@ class SaleRepository
         return Sale::paginate(15);
     }
 
-    public function save(array $attributes)
+    /** @param mixed[] $attributes */
+    public function save(array $attributes): Sale
     {
         return Sale::firstOrCreate($attributes);
     }

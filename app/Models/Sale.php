@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -30,7 +31,7 @@ class Sale extends Model
         return $this->belongsTo(Seller::class);
     }
 
-    public function scopeCreatedToday($query)
+    public function scopeCreatedToday(Builder $query)
     {
         return $query->where('created_at', '>=', Carbon::today()->subDay()->format('Y-m-d H:i:s'));
     }
